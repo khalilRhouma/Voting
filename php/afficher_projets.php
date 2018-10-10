@@ -31,7 +31,7 @@ include("connection.php");
 try {
 
   //get user active
-  $sql2 = "select * from users WHERE id=2"; // add user session
+  $sql2 = "select * from users WHERE id=". $_SESSION['id']; // add user session
   $stmt2 = $conn->query($sql2);
   $user = $stmt2->fetch();
   //get id pojet votee
@@ -62,7 +62,7 @@ foreach ($projets as $projet) {
 
  if ($isVoted==false){
      ?>
-      <div><a href="vote.php?projet=<?php echo $projet["id"]?>&id=2"/>voter sur ce projet</a></div>
+      <div><a href="vote.php?projet=<?php echo $projet["id"]."&user=".$_SESSION['id']  ?>"/>voter sur ce projet</a></div>
       <?php  }  ?>
     </div> </div>
     

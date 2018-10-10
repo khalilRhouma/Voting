@@ -36,7 +36,9 @@ if ($user && $isVoted==false){
     $sql3 = "UPDATE projets SET votes=votes+1 WHERE id=".$idProjet;
     $stmt3 = $conn->prepare($sql3);
     $stmt3->execute();
-     echo $stmt3->rowCount() . " records of projets UPDATED successfully";
+   //  echo $stmt3->rowCount() . " records of projets UPDATED successfully";
+
+   header("Location: afficher_projets.php");
 }
 else echo "you are voted !!";
 

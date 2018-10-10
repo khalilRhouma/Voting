@@ -17,6 +17,9 @@ if (isset($_POST['email']) && isset($_POST['password']))
     {
         session_start();
         $_SESSION['login']="logedin";
+        $_SESSION['id']=$user['id'];
+        $_SESSION['nom']=$user['nom'];
+        $_SESSION['email']=$user['email'];
         header("Location: afficher_projets.php");
 
     } else {
